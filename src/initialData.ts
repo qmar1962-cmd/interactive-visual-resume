@@ -1,187 +1,302 @@
 import { ResumeData } from "./types";
 
 export const initialResumeData: ResumeData = {
-  version: "1.0.0",
-  personalInfo: {
-    name: "陈晓敏",
-    title: "HRBP / 薪酬绩效资深专家",
-    avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
-    email: "xiaomin.chen_hr@example.com",
-    phone: "138-1234-5678",
-    location: "中国 · 深圳",
-    website: "https://xiaomin-hrbp.github.io",
-    github: "xiaomin-hrbp",
-    linkedin: "xiaomin-chen-hr",
-    bio: "拥有 10 年+ 知名高成长科技企业及跨国集团深厚人力资源管理经验。专注于薪酬福利体系设计 (C&B)、全面绩效激励闭环管理（OKR/KPI/三阶评估）以及业务合作伙伴 (HRBP) 战略落地。擅长将企业经营指标与人效分析指标深度绑定，通过精益调薪策略、宽带薪酬、多元激励以及人效诊断为业务部门打造高产出战队。",
-    summary: "高级人力资源管理师、资深 HRBP 专家。熟谙宽带薪酬、美世/海氏等标杆岗位技能要素评估体系，主导过多次覆盖千人规模的调薪与期权激励方案统筹；深挖业务核心痛点并进行组织重构设计与核心骨干盘点，具备极强的人效数据分析（People Analytics）与信息化 HR 治理工具落地应用能力。"
+  "version": "1.0.0",
+  "personalInfo": {
+    "name": "陈晓敏",
+    "title": "HRBP / 薪酬绩效资深专家",
+    "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
+    "email": "xiaomin.chen_hr@example.com",
+    "phone": "138-1234-5678",
+    "location": "中国 · 深圳",
+    "website": "https://xiaomin-hrbp.github.io",
+    "github": "xiaomin-hrbp",
+    "linkedin": "xiaomin-chen-hr",
+    "bio": "拥有 10 年+ 知名高成长科技企业及跨国集团深厚人力资源管理经验。专注于薪酬福利体系设计 (C&B)、全面绩效激励闭环管理（OKR/KPI/三阶评估）以及业务合作伙伴 (HRBP) 战略落地。擅长将企业经营指标与人效分析指标深度绑定，通过精益调薪策略、宽带薪酬、多元激励以及人效诊断为业务部门打造高产出战队。",
+    "summary": "高级人力资源管理师、资深 HRBP 专家。熟谙宽带薪酬、美世/海氏等标杆岗位技能要素评估体系，主导过多次覆盖千人规模的调薪与期权激励方案统筹；深挖业务核心痛点并进行组织重构设计与核心骨干盘点，具备极强的人效数据分析（People Analytics）与信息化 HR 治理工具落地应用能力。"
   },
-  skills: [
-    { name: "宽带薪酬与定岗定级体系设计", level: 96, category: "Frontend", yearsOfExp: 10 },
-    { name: "全面绩效闭环与动态激励机制 (OKR/KPI)", level: 95, category: "Frontend", yearsOfExp: 9 },
-    { name: "人工成本预算分析与总数控制 (C&B Control)", level: 92, category: "Frontend", yearsOfExp: 8 },
-    { name: "HRBP 业务诊断与组织痛点攻坚", level: 94, category: "Backend", yearsOfExp: 8 },
-    { name: "组织架构重建与核心岗位对标设计", level: 90, category: "Backend", yearsOfExp: 10 },
-    { name: "核心干部后备梯队盘点 (Succession Planning)", level: 88, category: "Backend", yearsOfExp: 7 },
-    { name: "组织效能盘点与综合人效分析 (ROI & L&D)", level: 93, category: "DevOps & Cloud", yearsOfExp: 9 },
-    { name: "360度环评胜任力建模与反馈机制", level: 88, category: "DevOps & Cloud", yearsOfExp: 6 },
-    { name: "核心骨干定制激励与个人发展计划 (IDP)", level: 91, category: "DevOps & Cloud", yearsOfExp: 8 },
-    { name: "高级数据管理与决策透析 (Excel/PowerBI/SQL)", level: 95, category: "Tools & Others", yearsOfExp: 10 },
-    { name: "一体化数智 HRM 与飞书 OKR 系统集成", level: 92, category: "Tools & Others", yearsOfExp: 5 },
-    { name: "劳动纠纷防范与用工风险实务管理", level: 86, category: "Tools & Others", yearsOfExp: 10 }
-  ],
-  experience: [
+  "skills": [
     {
-      id: "exp_1",
-      company: "领航创想智能科技有限公司",
-      role: "资深 HRBP 专家 / 薪酬绩效部负责人",
-      startDate: "2022-04",
-      endDate: "至今",
-      location: "深圳",
-      description: [
-        "深度服务于千人级产研、运营及全球业务群。主导重构并落定了2023-2025年最新集团宽带薪酬标准和定岗定级总盘子，方案升级后，研发核心高价值人才流失率同比大幅缩减 35%。",
-        "打通‘战略-绩效-激励’闭环，推行‘OKR + 敏捷KPI双轨考核制’。协同产品线总裁重整核心业务提成与奖金分配政策，直接促成组织人效提升 18%，单兵销售业绩复合增长 22%。",
-        "联合数据团队从零构建‘集团人效效能分析管理系统 (People Analytics Console)’，深度集成飞书与配薪核算引擎，实时打通人工成本支出额、编制冗余度、及绩效饱和度，为集团管委会决策提供精确数据依据。"
-      ],
-      techStack: ["全面薪酬宽带管理 (C&B)", "组织架构重组", "OKR/KPI 双轨考核制", "人效看板 (BI)", "飞书HRM", "中高管绩效辅导"]
+      "name": "宽带薪酬与定岗定级体系设计",
+      "level": 96,
+      "category": "Frontend",
+      "yearsOfExp": 10
     },
     {
-      id: "exp_2",
-      company: "极光数字空间科技有限公司",
-      role: "HRBP 经理 (产研事业部负责人)",
-      startDate: "2018-09",
-      endDate: "2022-03",
-      location: "深圳",
-      description: [
-        "全面负责技术中心（450人+）的组织发展、人才梯队与激励配置工作。主导中高层核心中坚力量两轮大盘点，并对核心核心架构师及骨干实施‘一人一策’动态股权保留政策，使核心技术专家留任率提升至 95%。",
+      "name": "全面绩效闭环与动态激励机制 (OKR/KPI)",
+      "level": 95,
+      "category": "Frontend",
+      "yearsOfExp": 9
+    },
+    {
+      "name": "人工成本预算分析与总数控制 (C&B Control)",
+      "level": 92,
+      "category": "Frontend",
+      "yearsOfExp": 8
+    },
+    {
+      "name": "HRBP 业务诊断与组织痛点攻坚",
+      "level": 94,
+      "category": "Backend",
+      "yearsOfExp": 8
+    },
+    {
+      "name": "组织架构重建与核心岗位对标设计",
+      "level": 90,
+      "category": "Backend",
+      "yearsOfExp": 10
+    },
+    {
+      "name": "核心干部后备梯队盘点 (Succession Planning)",
+      "level": 88,
+      "category": "Backend",
+      "yearsOfExp": 7
+    },
+    {
+      "name": "组织效能盘点与综合人效分析 (ROI & L&D)",
+      "level": 93,
+      "category": "DevOps & Cloud",
+      "yearsOfExp": 9
+    },
+    {
+      "name": "360度环评胜任力建模与反馈机制",
+      "level": 88,
+      "category": "DevOps & Cloud",
+      "yearsOfExp": 6
+    },
+    {
+      "name": "核心骨干定制激励与个人发展计划 (IDP)",
+      "level": 91,
+      "category": "DevOps & Cloud",
+      "yearsOfExp": 8
+    },
+    {
+      "name": "高级数据管理与决策透析 (Excel/PowerBI/SQL)",
+      "level": 95,
+      "category": "Tools & Others",
+      "yearsOfExp": 10
+    },
+    {
+      "name": "一体化数智 HRM 与飞书 OKR 系统集成",
+      "level": 92,
+      "category": "Tools & Others",
+      "yearsOfExp": 5
+    },
+    {
+      "name": "劳动纠纷防范与用工风险实务管理",
+      "level": 86,
+      "category": "Tools & Others",
+      "yearsOfExp": 10
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp_1",
+      "company": "领航创想智能科技有限公司",
+      "role": "资深 HRBP 专家 / 薪酬绩效部负责人",
+      "startDate": "2022-04",
+      "endDate": "至今",
+      "location": "深圳",
+      "description": [
+        "深度服务于千人级产研、运营及全球业务群。主导重构并落定了2023-2025年最新集团宽带薪酬标准和定岗定级总盘子，方案升级后，研发核心高价值人才流失率同比大幅缩减 35%。",
+        "打通'战略-绩效-激励'闭环，推行'OKR + 敏捷KPI双轨考核制'。协同产品线总裁重整核心业务提成与奖金分配政策，直接促成组织人效提升 18%，单兵销售业绩复合增长 22%。",
+        "联合数据团队从零构建'集团人效效能分析管理系统 (People Analytics Console)'，深度集成飞书与配薪核算引擎，实时打通人工成本支出额、编制冗余度、及绩效饱和度，为集团管委会决策提供精确数据依据。"
+      ],
+      "techStack": [
+        "全面薪酬宽带管理 (C&B)",
+        "组织架构重组",
+        "OKR/KPI 双轨考核制",
+        "人效看板 (BI)",
+        "飞书HRM",
+        "中高管绩效辅导"
+      ]
+    },
+    {
+      "id": "exp_2",
+      "company": "极光数字空间科技有限公司",
+      "role": "HRBP 经理 (产研事业部负责人)",
+      "startDate": "2018-09",
+      "endDate": "2022-03",
+      "location": "深圳",
+      "description": [
+        "全面负责技术中心（450人+）的组织发展、人才梯队与激励配置工作。主导中高层核心中坚力量两轮大盘点，并对核心核心架构师及骨干实施'一人一策'动态股权保留政策，使核心技术专家留任率提升至 95%。",
         "深入业务核心开展敏捷改组，剥离重叠的多维繁冗层级，重组为 8 个高内聚自闭环业务战队，大幅提升内部业务流转与人效提速 15%。",
         "推行月度人效专项复盘、新晋技术经理管理辅导；协同集团年度薪酬回顾，解决历史不匹配倒挂等痛点，年度调薪满意度评分达 4.8 / 5.0。"
       ],
-      techStack: ["HRBP 实践", "胜任力模型评估", "晋升评审机制", "晋升调薪测算模型", "组织诊断与人效分析"]
+      "techStack": [
+        "HRBP 实践",
+        "胜任力模型评估",
+        "晋升评审机制",
+        "晋升调薪测算模型",
+        "组织诊断与人效分析"
+      ]
     },
     {
-      id: "exp_3",
-      company: "中科智能制造控股集团",
-      role: "人力资源主管 -> 薪酬福利高级专员",
-      startDate: "2015-07",
-      endDate: "2018-08",
-      location: "上海",
-      description: [
-        "统管 2000+ 关系复杂中大型组织员工算薪、多层级社保公积金及个税代扣代缴事宜，流程精密核算，创下连续 12 季度 100% 算薪‘零差错’。",
+      "id": "exp_3",
+      "company": "中科智能制造控股集团",
+      "role": "人力资源主管 -> 薪酬福利高级专员",
+      "startDate": "2015-07",
+      "endDate": "2018-08",
+      "location": "上海",
+      "description": [
+        "统管 2000+ 关系复杂中大型组织员工算薪、多层级社保公积金及个税代扣代缴事宜，流程精密核算，创下连续 12 季度 100% 算薪'零差错'。",
         "深度协助美世（Mercer）岗位对标盘点咨询项目，作为项目主力撰写与对标 150 余个核心中高层及技术研发关键岗位说明书；协同定制《集团薪酬福利精益发放白皮书》，极大降低不规避福利成本支出。"
       ],
-      techStack: ["海氏/美世岗位对标", "精密个税社保算薪实务", "用工风险管理", "组织绩效模型", "高级 Excel 分析建模"]
+      "techStack": [
+        "海氏/美世岗位对标",
+        "精密个税社保算薪实务",
+        "用工风险管理",
+        "组织绩效模型",
+        "高级 Excel 分析建模"
+      ]
     }
   ],
-  projects: [
+  "projects": [
     {
-      id: "proj_1",
-      title: "最新年度全集团宽带薪酬重构及动态绩效挂钩计划",
-      description: "针对原有薪金重合严重、职级虚高、起步倒挂等历史痛点，主导落地的涵盖千人规模的宽带薪酬重新评估定档和调薪算法项目。",
-      category: "薪酬福利核心工程",
-      techStack: ["宽带薪酬", "调薪矩阵算法", "美世定档模型", "Excel 仿真财务模型"],
-      featured: true,
-      role: "项目负责人",
-      timeline: "2023-2024",
-      background: "原有薪酬体系存在薪金重合严重、职级虚高、起步倒挂等历史痛点，导致核心人才流失率高、调薪满意度低，亟需系统性重构。",
-      objective: "在把控总人本支出增幅低于5%的前提下，激活绩优主力团队，同时消除历史倒挂问题。",
-      actions: [
+      "id": "proj_1",
+      "title": "最新年度全集团宽带薪酬重构及动态绩效挂钩计划",
+      "description": "针对原有薪金重合严重、职级虚高、起步倒挂等历史痛点，主导落地的涵盖千人规模的宽带薪酬重新评估定档和调薪算法项目。",
+      "category": "薪酬福利核心工程",
+      "techStack": [
+        "宽带薪酬",
+        "调薪矩阵算法",
+        "美世定档模型",
+        "Excel 仿真财务模型"
+      ],
+      "featured": true,
+      "highlights": [
+        "搭建深度仿真数学测算，推演 12 种不同调薪分配曲线，最终实现在把控总人本支出增幅低于 5% 的同时，高质激活了前 40% 的绩优主力团队。",
+        "重置新晋升定级和薪资起锚点的自动锁定矩阵，将历史倒挂严重性由 25% 压缩至 2.5% 以内。"
+      ],
+      "background": "原有薪酬体系存在薪金重合严重、职级虚高、起步倒挂等历史痛点，导致核心人才流失率高、调薪满意度低，亟需系统性重构。",
+      "objective": "在把控总人本支出增幅低于5%的前提下，激活绩优主力团队，同时消除历史倒挂问题。",
+      "actions": [
         "搭建深度仿真数学测算，推演12种不同调薪分配曲线，量化分析每种方案的成本影响与激励效果。",
         "引入美世（Mercer）岗位要素评估体系，对全集团核心岗位重新定档定级。",
         "设计晋升定级和薪资起锚点的自动锁定矩阵，实现调薪流程标准化与自动化。"
       ],
-      outcomes: [
+      "outcomes": [
         "在把控总人本支出增幅低于5%的同时，高质激活了前40%的绩优主力团队。",
         "将历史倒挂严重性由25%压缩至2.5%以内。",
         "研发核心高价值人才流失率同比大幅缩减35%。"
       ],
-      highlights: [
-        "搭建深度仿真数学测算，推演 12 种不同调薪分配曲线，最终实现在把控总人本支出增幅低于 5% 的同时，高质激活了前 40% 的绩优主力团队。",
-        "重置新晋升定级和薪资起锚点的自动锁定矩阵，将历史倒挂严重性由 25% 压缩至 2.5% 以内。"
-      ]
+      "role": "项目负责人",
+      "timeline": "2023-2024"
     },
     {
-      id: "proj_2",
-      title: "HR 人效数据飞轮与\u201C一站式人效监控 BI 决策平台\u201D",
-      description: "自研一套与飞书多维表格与 PowerBI 打通的组织效能监控系统，用于全息透视实时人员编制、主动流失、业绩 ROI、单兵创出以及绩效偏离系数。",
-      category: "人力资源数字化",
-      techStack: ["PowerBI", "People Analytics", "数据清洗", "指标库治理", "飞书 API"],
-      featured: true,
-      role: "项目负责人",
-      timeline: "2023-2024",
-      background: "传统人力数据统计依赖手工跨源取数，效率低下且时效性差，管理层无法实时获取人效数据支撑决策。",
-      objective: "将人效数据从手工两周合并一次升级为日级自动抓取，构建实时组织效能监控与预警体系。",
-      actions: [
+      "id": "proj_2",
+      "title": "HR 人效数据飞轮与\"一站式人效监控 BI 决策平台\"",
+      "description": "自研一套与飞书多维表格与 PowerBI 打通的组织效能监控系统，用于全息透视实时人员编制、主动流失、业绩 ROI、单兵创出以及绩效偏离系数。",
+      "category": "人力资源数字化",
+      "techStack": [
+        "PowerBI",
+        "People Analytics",
+        "数据清洗",
+        "指标库治理",
+        "飞书 API"
+      ],
+      "featured": true,
+      "highlights": [
+        "将传统手工跨源取数及算账的时间从原本每两周合并一次缩短至日级自动抓取更新，提高人力资源统计生产力达 95%。",
+        "融入组织规模预膨胀系数、核心异动预警、绩优被动流失危机指标，帮助管理层提早识别并化解了多起用工重叠危机。"
+      ],
+      "background": "传统人力数据统计依赖手工跨源取数，效率低下且时效性差，管理层无法实时获取人效数据支撑决策。",
+      "objective": "将人效数据从手工两周合并一次升级为日级自动抓取，构建实时组织效能监控与预警体系。",
+      "actions": [
         "打通飞书多维表格与PowerBI数据流，建立自动化数据采集与清洗管道。",
         "设计组织效能指标库，涵盖人员编制、主动流失率、业绩ROI、单兵产出、绩效偏离系数等核心维度。",
         "融入组织规模预膨胀系数、核心异动预警、绩优被动流失危机指标等智能预警模型。"
       ],
-      outcomes: [
+      "outcomes": [
         "将传统手工跨源取数及算账时间从两周合并一次缩短至日级自动抓取更新，人力统计生产力提升95%。",
         "帮助管理层提早识别并化解多起用工重叠危机，避免潜在成本损失。",
         "实时数据看板覆盖全集团，管委会决策响应速度提升3倍。"
       ],
-      highlights: [
-        "将传统手工跨源取数及算账的时间从原本每两周合并一次缩短至日级自动抓取更新，提高人力资源统计生产力达 95%。",
-        "融入组织规模预膨胀系数、核心异动预警、绩优被动流失危机指标，帮助管理层提早识别并化解了多起用工重叠危机。"
-      ]
+      "role": "项目负责人",
+      "timeline": "2023-2024"
     },
     {
-      id: "proj_3",
-      title: "产研核心主管 360 度能力盘点与\u201C主管成长加速营\u201D",
-      description: "针对产研事业部中层管理者管理成熟度参差不齐的问题，引入针对性的 360 度胜任力矩阵全方位诊断，并配套设计出 IDP (个人成长计划) 落地赋能方案。",
-      category: "组织能力盘点及发展",
-      techStack: ["360度评估机制", "胜任力九宫格", "IDP 提升路线", "管理者角色转身辅导"],
-      featured: false,
-      role: "项目负责人",
-      timeline: "2022-2023",
-      background: "产研事业部中层管理者管理成熟度参差不齐，基层工程师与管理者沟通割裂，内部继任准备度不足。",
-      objective: "通过360度胜任力诊断精准定位管理短板，配套IDP个人成长计划与加速营，提升内部继任准备度。",
-      actions: [
+      "id": "proj_3",
+      "title": "产研核心主管 360 度能力盘点与\"主管成长加速营\"",
+      "description": "针对产研事业部中层管理者管理成熟度参差不齐的问题，引入针对性的 360 度胜任力矩阵全方位诊断，并配套设计出 IDP (个人成长计划) 落地赋能方案。",
+      "category": "组织能力盘点及发展",
+      "techStack": [
+        "360度评估机制",
+        "胜任力九宫格",
+        "IDP 提升路线",
+        "管理者角色转身辅导"
+      ],
+      "featured": false,
+      "highlights": [
+        "高标准全票落地 80+ 中高级经理能力诊断，构建集团核心高潜力人才蓄水池，使组织'内部继任准备度'实质提升 40%。",
+        "配套两场'管理者角色转身理论与研讨'，切实改善了产研线基层工程师与管理者之间原本割裂的沟通习惯。"
+      ],
+      "background": "产研事业部中层管理者管理成熟度参差不齐，基层工程师与管理者沟通割裂，内部继任准备度不足。",
+      "objective": "通过360度胜任力诊断精准定位管理短板，配套IDP个人成长计划与加速营，提升内部继任准备度。",
+      "actions": [
         "引入360度胜任力矩阵，对80+中高级经理进行全方位能力诊断与盘点。",
         "基于诊断结果，为核心高潜人才设计'一人一策'IDP个人发展计划。",
         "配套两场'管理者角色转身理论与研讨'，聚焦沟通力与团队领导力提升。"
       ],
-      outcomes: [
+      "outcomes": [
         "高标准全票落地80+中高级经理能力诊断，构建核心高潜力人才蓄水池。",
         "组织'内部继任准备度'实质性提升40%。",
         "基层工程师与管理者沟通满意度显著改善。"
       ],
-      highlights: [
-        "高标准全票落地 80+ 中高级经理能力诊断，构建集团核心高潜力人才蓄水池，使组织'内部继任准备度'实质提升 40%。",
-        "配套两场'管理者角色转身理论与研讨'，切实改善了产研线基层工程师与管理者之间原本割裂的沟通习惯。"
-      ]
+      "role": "项目负责人",
+      "timeline": "2022-2023"
     }
   ],
-  education: [
+  "education": [
     {
-      id: "edu_1",
-      institution: "中南财经政法大学",
-      degree: "本科",
-      major: "人力资源管理",
-      startDate: "2011-09",
-      endDate: "2015-06",
-      category: "学历教育" as const,
-      certName: "",
-      certOrg: "",
-      certDate: "",
-      highlights: [
+      "id": "edu_1",
+      "institution": "中南财经政法大学",
+      "degree": "本科",
+      "major": "人力资源管理",
+      "startDate": "2011-09",
+      "endDate": "2015-06",
+      "category": "学历教育",
+      "certName": "",
+      "certOrg": "",
+      "certDate": "",
+      "highlights": [
         "主修组织行为学、薪酬福利设计、绩效考评与实务、劳动法与合同合规规划。",
         "曾荣获国家级励志奖学金、校级优秀毕业生。毕设《互联网科技企业动态期权及虚拟股绩效绑定设计》被评为校级一等论文。"
       ]
     }
   ],
-  githubConfig: {
-    username: "xiaomin-hrbp",
-    useLiveApi: false, // Defaulting to pre-seeded high-quality data to convey professionalism offline-first!
-    repoCountOverride: 12,
-    commitCountOverride: 184,
-    starredCountOverride: 45,
-    languages: [
-      { name: "薪酬福利设计与规划 (C&B)", percentage: 38.5, color: "#10b981" },
-      { name: "全面绩效激励机制对齐 (KPI/OKR)", percentage: 28.2, color: "#3b82f6" },
-      { name: "HRBP 业务诊断与组织发展 (OD)", percentage: 18.3, color: "#f59e0b" },
-      { name: "人效效能分析系统 (BI & Analytics)", percentage: 10.0, color: "#8b5cf6" },
-      { name: "劳动合同合规与用工风险预防", percentage: 5.0, color: "#ef4444" }
+  "githubConfig": {
+    "username": "xiaomin-hrbp",
+    "useLiveApi": false,
+    "repoCountOverride": 12,
+    "commitCountOverride": 184,
+    "starredCountOverride": 45,
+    "languages": [
+      {
+        "name": "薪酬福利设计与规划 (C&B)",
+        "percentage": 38.5,
+        "color": "#10b981"
+      },
+      {
+        "name": "全面绩效激励机制对齐 (KPI/OKR)",
+        "percentage": 28.2,
+        "color": "#3b82f6"
+      },
+      {
+        "name": "HRBP 业务诊断与组织发展 (OD)",
+        "percentage": 18.3,
+        "color": "#f59e0b"
+      },
+      {
+        "name": "人效效能分析系统 (BI & Analytics)",
+        "percentage": 10,
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "劳动合同合规与用工风险预防",
+        "percentage": 5,
+        "color": "#ef4444"
+      }
     ]
   }
-};
+} as ResumeData;
