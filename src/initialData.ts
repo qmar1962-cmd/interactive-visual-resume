@@ -1,3 +1,6 @@
+// ⚠️ 此文件由 resume-data.xlsx 自动生成，请勿手动修改
+// 修改数据请编辑 resume-data.xlsx，然后运行 npm run sync
+
 import { ResumeData } from "./types";
 
 export const initialResumeData: ResumeData = {
