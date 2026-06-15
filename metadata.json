@@ -1,0 +1,6 @@
+{
+  "name": "HR Analyst Elite Portfolio",
+  "description": "A highly-polished interactive visual analytics portfolio and resume tailored for HR Business Partners & Compensation & Performance specialists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,82 @@
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  avatarUrl: string;
+  email: string;
+  phone: string;
+  location: string;
+  website: string;
+  github: string;
+  linkedin: string;
+  bio: string;
+  summary: string;
+}
+
+export interface Skill {
+  name: string;
+  level: number; // 0-100
+  category: "Frontend" | "Backend" | "DevOps & Cloud" | "Tools & Others";
+  yearsOfExp: number;
+}
+
+export interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  startDate: string;
+  endDate: string; // "Present" or "YYYY-MM"
+  location: string;
+  description: string[];
+  techStack: string[];
+  website?: string;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  techStack: string[];
+  githubRepo?: string; // used for live fetching
+  demoUrl?: string;
+  featured: boolean;
+  highlights: string[];
+}
+
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  major: string;
+  startDate: string;
+  endDate: string;
+  highlights?: string[];
+}
+
+export interface GitHubConfig {
+  username: string;
+  useLiveApi: boolean;
+  repoCountOverride: number;
+  commitCountOverride: number;
+  starredCountOverride: number;
+  languages: { name: string; percentage: number; color: string }[];
+}
+
+export interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  date: string;
+}
+
+export interface ResumeData {
+  version: string;
+  personalInfo: PersonalInfo;
+  skills: Skill[];
+  experience: Experience[];
+  projects: Project[];
+  education: Education[];
+  githubConfig: GitHubConfig;
+}
