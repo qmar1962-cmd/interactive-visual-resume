@@ -652,7 +652,8 @@ export default function App() {
           id="main-view-container"
           className="flex-1 min-h-[500px] md:min-h-[650px] md:h-[calc(100vh-160px)] bg-white/40 dark:bg-slate-900/30 md:bg-white md:dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col overflow-y-auto no-scrollbar shadow-sm print:shadow-none print:border-none print:bg-white print:p-0 print:m-0"
         >
-          {/* SECTION HEADER */}
+          {/* SECTION HEADER - 个人总览时隐藏，其他tab显示 */}
+          {activeTab !== "overview" && (
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-slate-150 dark:border-slate-850 print:hidden">
             <div>
               <div className="flex items-center gap-2.5 text-[10px] text-teal-600 dark:text-teal-400 font-extrabold tracking-widest uppercase">
@@ -690,6 +691,7 @@ export default function App() {
               </button>
             </div>
           </div>
+          )}
 
           {/* CONTENT TABS */}
           <div className="flex-1">
@@ -750,10 +752,10 @@ export default function App() {
                 </div>
 
                 {/* TWO-COLUMN LAYOUT */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                   
                   {/* Left Column: About & Work Strategy logs */}
-                  <div className="lg:col-span-7 space-y-6 md:space-y-8">
+                  <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8">
                     
                     {/* About me card */}
                     <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
@@ -805,10 +807,10 @@ export default function App() {
                   </div>
 
                   {/* Right Column: 核心能力分布 + 重点项目 */}
-                  <div className="lg:col-span-5 space-y-5">
+                  <div className="lg:col-span-5 flex flex-col gap-5">
 
                     {/* 技能领域分布 */}
-                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
+                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850/80 flex flex-col">
                       <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
                         <Brain size={16} className="text-teal-500" />
                         <span>核心能力领域分布</span>
@@ -840,16 +842,16 @@ export default function App() {
                       <button
                         onClick={() => setActiveTab("skills")}
                         id="view-full-skills-btn"
-                        className="w-full mt-4 py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-slate-150 dark:border-slate-750"
+                        className="w-full mt-auto py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-slate-150 dark:border-slate-750"
                       >
                         <span>查看完整技能列表</span>
                         <ChevronRight size={13} />
                       </button>
                     </div>
 
-                    {/* 重点项目 */}
-                    {resumeData.projects.filter(p => p.featured).slice(0, 1).map((proj) => (
-                      <div key={proj.id} className="bg-gradient-to-br from-emerald-500/10 to-indigo-500/8 dark:from-emerald-950/15 dark:to-indigo-950/12 p-5 rounded-2xl border border-emerald-400/18 dark:border-emerald-600/15">
+                    {/* 重点项目 - 展示前2个 */}
+                    {resumeData.projects.filter(p => p.featured).slice(0, 2).map((proj) => (
+                      <div key={proj.id} className="bg-gradient-to-br from-emerald-500/10 to-indigo-500/8 dark:from-emerald-950/15 dark:to-indigo-950/12 p-5 rounded-2xl border border-emerald-400/18 dark:border-emerald-600/15 flex-1 flex flex-col">
                         <div className="flex items-center gap-2 mb-2.5">
                           <TrendingUp size={14} className="text-emerald-500" />
                           <span className="text-[10px] font-extrabold text-indigo-600 dark:text-emerald-400 tracking-wider uppercase">重点项目</span>
@@ -866,7 +868,7 @@ export default function App() {
                         <button
                           onClick={() => setActiveTab("projects")}
                           id="featured-proj-view-btn"
-                          className="w-full mt-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-sm transition-all"
+                          className="w-full mt-auto py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-sm transition-all"
                         >
                           <span>查看项目详情</span>
                           <ChevronRight size={13} />
