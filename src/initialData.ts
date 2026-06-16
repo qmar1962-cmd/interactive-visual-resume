@@ -4,12 +4,12 @@
 import { ResumeData } from "./types";
 
 export const initialResumeData: ResumeData = {
-  "_version": "2026-06-16-v2",
   "version": "2.0.0",
+  "_version": "2026-06-16-v3",
   "personalInfo": {
     "name": "刘洋",
     "title": "HRBP · 薪酬绩效专员",
-    "avatarUrl": "/avatar.jpg",
+    "avatarUrl": "/interactive-visual-resume/avatar.jpg",
     "email": "qmar1962@gmail.com",
     "phone": "180-6234-4910",
     "location": "中国 · 武汉",
