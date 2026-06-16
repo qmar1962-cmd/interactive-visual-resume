@@ -84,6 +84,7 @@ export interface ContactMessage {
 
 export interface ResumeData {
   version: string;
+  _version?: string;
   personalInfo: PersonalInfo;
   skills: Skill[];
   experience: Experience[];

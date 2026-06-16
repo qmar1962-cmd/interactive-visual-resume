@@ -57,6 +57,11 @@ export default function App() {
       const saved = localStorage.getItem("interactive_resume_data");
       if (saved) {
         const parsed = JSON.parse(saved);
+        // 版本检查：localStorage 数据版本落后时丢弃缓存，使用最新初始数据
+        if (parsed?._version !== initialResumeData._version) {
+          console.log(`数据版本已更新 (${parsed?._version || '无'} → ${initialResumeData._version})，使用最新数据`);
+          return initialResumeData;
+        }
         // Validate parsed data has expected structure
         if (parsed?.personalInfo && parsed?.education) {
           return parsed;

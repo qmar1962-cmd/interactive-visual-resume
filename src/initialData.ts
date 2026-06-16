@@ -4,7 +4,8 @@
 import { ResumeData } from "./types";
 
 export const initialResumeData: ResumeData = {
-  "version": "1.0.0",
+  "_version": "2026-06-16-v2",
+  "version": "2.0.0",
   "personalInfo": {
     "name": "刘洋",
     "title": "HRBP · 薪酬绩效专员",

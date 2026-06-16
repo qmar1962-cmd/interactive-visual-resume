@@ -203,7 +203,7 @@ for (const row of ghRows) {
 }
 
 // ─── 生成 TypeScript ───
-const data = { version: "1.0.0", personalInfo, skills, experience, projects, education, githubConfig };
+const data = { version: "2.0.0", _version: new Date().toISOString().slice(0, 10) + "-v2", personalInfo, skills, experience, projects, education, githubConfig };
 
 const ts = `// ⚠️ 此文件由 resume-data.xlsx 自动生成，请勿手动修改
 // 修改数据请编辑 resume-data.xlsx，然后运行 npm run sync
