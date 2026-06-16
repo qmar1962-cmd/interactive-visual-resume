@@ -650,9 +650,9 @@ export default function App() {
         {/* MAIN VIEWPORT */}
         <main
           id="main-view-container"
-          className="flex-1 min-h-[500px] md:min-h-[650px] md:h-[calc(100vh-160px)] bg-white/40 dark:bg-slate-900/30 md:bg-white md:dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col overflow-y-auto no-scrollbar shadow-sm print:shadow-none print:border-none print:bg-white print:p-0 print:m-0"
+          className="flex-1 min-h-[500px] md:min-h-[650px] md:h-[calc(100vh-100px)] bg-white/40 dark:bg-slate-900/30 md:bg-white md:dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col shadow-sm print:shadow-none print:border-none print:bg-white print:p-0 print:m-0"
         >
-          {/* SECTION HEADER - 个人总览时隐藏，其他tab显示 */}
+          {/* SECTION HEADER - 个人总览时隐藏 */}
           {activeTab !== "overview" && (
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-slate-150 dark:border-slate-850 print:hidden">
             <div>
@@ -694,61 +694,25 @@ export default function App() {
           )}
 
           {/* CONTENT TABS */}
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto no-scrollbar">
 
             {/* ==================== TAB 1: OVERVIEW ==================== */}
             {activeTab === "overview" && (
               <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
-                {/* 4 CORE HR METRICS */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  
-                  {/* Metric 1: Exp */}
-                  <div className="bg-slate-50/50 dark:bg-slate-900/35 p-4 rounded-2xl border border-slate-150/60 dark:border-slate-850 hover:shadow-md transition-all flex items-center gap-4">
-                    <div className="p-3 bg-teal-50 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 rounded-xl border border-teal-100/20">
-                      <Briefcase size={20} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">工作年限</p>
-                      <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{experienceYears}</p>
-                    </div>
-                  </div>
-
-                  {/* Metric 2: Projects */}
-                  <div className="bg-slate-50/50 dark:bg-slate-900/35 p-4 rounded-2xl border border-slate-150/60 dark:border-slate-850 hover:shadow-md transition-all flex items-center gap-4">
-                    <div className="p-3 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-100/20">
-                      <Award size={20} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">核心项目</p>
-                      <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{resumeData.projects.length} 个</p>
-                    </div>
-                  </div>
-
-                  {/* Metric 3: Performance Coverage Rate */}
-                  <div className="bg-slate-50/50 dark:bg-slate-900/35 p-4 rounded-2xl border border-slate-150/60 dark:border-slate-850 hover:shadow-md transition-all flex items-center gap-4">
-                    <div className="p-3 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl border border-amber-100/20">
-                      <BadgeCheck size={20} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-450 uppercase tracking-widest">绩效上线率</p>
-                      <p className="text-lg font-extrabold text-emerald-600 dark:text-emerald-450 mt-0.5">
-                        94%
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Metric 4: Messages */}
-                  <div className="bg-slate-50/50 dark:bg-slate-900/35 p-4 rounded-2xl border border-slate-150/60 dark:border-slate-850 hover:shadow-md transition-all flex items-center gap-4 cursor-pointer" onClick={() => setActiveTab("contact")}>
-                    <div className="p-3 bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-xl border border-rose-100/20">
-                      <Mail size={20} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">留言</p>
-                      <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{contactMessages.length} 封留言</p>
-                    </div>
-                  </div>
-
+                {/* 紧凑信息条：关键数据一览 */}
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm py-3 px-4 rounded-xl bg-slate-50/60 dark:bg-slate-900/30 border border-slate-100/80 dark:border-slate-800/50">
+                  <span className="font-bold text-slate-900 dark:text-white text-[13px]">
+                    {resumeData.personalInfo.name} · {resumeData.personalInfo.title}
+                  </span>
+                  <span className="w-px h-4 bg-slate-200 dark:bg-slate-700 hidden sm:block"></span>
+                  <span className="text-slate-500 dark:text-slate-400 text-[12px]"><MapPin size={11} className="inline mr-1 -mt-0.5" />{resumeData.personalInfo.location || "武汉"}</span>
+                  <span className="w-px h-4 bg-slate-200 dark:bg-slate-700 hidden sm:block"></span>
+                  <span className="text-slate-600 dark:text-slate-300 text-[13px] font-semibold">{experienceYears}<span className="text-[11px] font-normal text-slate-400 ml-0.5">年经验</span></span>
+                  <span className="w-px h-4 bg-slate-200 dark:bg-slate-700 hidden sm:block"></span>
+                  <span className="text-slate-600 dark:text-slate-300 text-[13px] font-semibold">{resumeData.projects.length}<span className="text-[11px] font-normal text-slate-400 ml-0.5">个项目</span></span>
+                  <span className="w-px h-4 bg-slate-200 dark:bg-slate-700 hidden sm:block"></span>
+                  <span className="text-emerald-600 dark:text-emerald-400 text-[13px] font-semibold">94%<span className="text-[11px] font-normal text-slate-400 ml-0.5">绩效上线</span></span>
                 </div>
 
                 {/* TWO-COLUMN LAYOUT */}
@@ -773,7 +737,7 @@ export default function App() {
                     </div>
 
                     {/* HRBP Strategic Activity Bulletin */}
-                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
+                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80 flex-1 flex flex-col">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2">
                           <Activity className="text-emerald-500 animate-pulse" size={17} />
@@ -810,7 +774,7 @@ export default function App() {
                   <div className="lg:col-span-5 flex flex-col gap-5">
 
                     {/* 技能领域分布 */}
-                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850/80 flex flex-col">
+                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
                       <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
                         <Brain size={16} className="text-teal-500" />
                         <span>核心能力领域分布</span>
@@ -842,14 +806,14 @@ export default function App() {
                       <button
                         onClick={() => setActiveTab("skills")}
                         id="view-full-skills-btn"
-                        className="w-full mt-auto py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-slate-150 dark:border-slate-750"
+                        className="w-full mt-4 py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-slate-150 dark:border-slate-750"
                       >
                         <span>查看完整技能列表</span>
                         <ChevronRight size={13} />
                       </button>
                     </div>
 
-                    {/* 重点项目 - 展示前2个 */}
+                    {/* 重点项目 */}
                     {resumeData.projects.filter(p => p.featured).slice(0, 2).map((proj) => (
                       <div key={proj.id} className="bg-gradient-to-br from-emerald-500/10 to-indigo-500/8 dark:from-emerald-950/15 dark:to-indigo-950/12 p-5 rounded-2xl border border-emerald-400/18 dark:border-emerald-600/15 flex-1 flex flex-col">
                         <div className="flex items-center gap-2 mb-2.5">
@@ -868,7 +832,7 @@ export default function App() {
                         <button
                           onClick={() => setActiveTab("projects")}
                           id="featured-proj-view-btn"
-                          className="w-full mt-auto py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-sm transition-all"
+                          className="w-full mt-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-sm transition-all"
                         >
                           <span>查看项目详情</span>
                           <ChevronRight size={13} />
@@ -1570,9 +1534,6 @@ export default function App() {
 
       </div>
 
-      <footer className="py-5 mt-auto text-center text-[11px] text-slate-400 dark:text-slate-500 print:hidden">
-        <p>© 2026 {resumeData.personalInfo.name}</p>
-      </footer>
 
     </div>
   );
