@@ -8,7 +8,7 @@ export const initialResumeData: ResumeData = {
   "personalInfo": {
     "name": "刘洋",
     "title": "HRBP · 薪酬绩效专员",
-    "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
+    "avatarUrl": "/avatar.jpg",
     "email": "qmar1962@gmail.com",
     "phone": "180-6234-4910",
     "location": "中国 · 武汉",
