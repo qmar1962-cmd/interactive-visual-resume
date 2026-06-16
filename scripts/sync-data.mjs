@@ -60,17 +60,17 @@ const COL_MAP = {
   "值（请修改这里）": "value",
 };
 
-// 技能分类中文 → 英文映射
+// 技能分类：中文直用（不再映射为英文）
 const SKILL_CATEGORY_MAP = {
-  "薪酬福利规划": "Frontend",
-  "HRBP业务协同": "Backend",
-  "组织效能与绩效激活": "DevOps & Cloud",
-  "人力数字化与用工合规": "Tools & Others",
-  // 兼容英文
-  "Frontend": "Frontend",
-  "Backend": "Backend",
-  "DevOps & Cloud": "DevOps & Cloud",
-  "Tools & Others": "Tools & Others",
+  "薪酬福利规划": "薪酬福利规划",
+  "HRBP业务协同": "HRBP业务协同",
+  "组织效能与绩效激活": "组织效能与绩效激活",
+  "人力数字化与用工合规": "人力数字化与用工合规",
+  // 兼容旧英文值
+  "Frontend": "薪酬福利规划",
+  "Backend": "HRBP业务协同",
+  "DevOps & Cloud": "组织效能与绩效激活",
+  "Tools & Others": "人力数字化与用工合规",
 };
 
 // ─── 工具函数 ───
@@ -126,7 +126,7 @@ const skills = skillRows.map((r, i) => {
   return {
     name: String(r.name ?? `技能${i + 1}`),
     level: Number(r.level ?? 80),
-    category: SKILL_CATEGORY_MAP[cat] ?? (cat || "Tools & Others"),
+    category: SKILL_CATEGORY_MAP[cat] ?? (cat || "人力数字化与用工合规"),
     yearsOfExp: Number(r.yearsOfExp ?? 1),
   };
 });
@@ -203,7 +203,7 @@ for (const row of ghRows) {
 }
 
 // ─── 生成 TypeScript ───
-const data = { version: "2.0.0", _version: new Date().toISOString().slice(0, 10) + "-v2", personalInfo, skills, experience, projects, education, githubConfig };
+const data = { version: "2.1.0", _version: new Date().toISOString().slice(0, 10) + "-v4", personalInfo, skills, experience, projects, education, githubConfig };
 
 const ts = `// ⚠️ 此文件由 resume-data.xlsx 自动生成，请勿手动修改
 // 修改数据请编辑 resume-data.xlsx，然后运行 npm run sync

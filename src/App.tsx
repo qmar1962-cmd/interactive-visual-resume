@@ -43,11 +43,11 @@ import { initialResumeData } from "./initialData";
 import { ResumeData, Skill, Experience, Project, Education, ContactMessage } from "./types";
 
 const categoryDisplayMap: Record<string, string> = {
-  "All": "全部分野",
-  "Frontend": "薪酬福利规划 (C&B)",
-  "Backend": "HRBP 业务协同",
-  "DevOps & Cloud": "组织效能与绩效激活",
-  "Tools & Others": "人力数字化与用工合规"
+  "All": "全部",
+  "薪酬福利规划": "薪酬福利规划",
+  "HRBP业务协同": "HRBP业务协同",
+  "组织效能与绩效激活": "组织效能与绩效激活",
+  "人力数字化与用工合规": "人力数字化与用工合规"
 };
 
 export default function App() {
@@ -214,9 +214,9 @@ export default function App() {
   // Skills CRUD
   const handleAddSkill = () => {
     const newSkill: Skill = {
-      name: "新设人资核心模块胜任力",
+      name: "新技能",
       level: 80,
-      category: "Frontend",
+      category: "薪酬福利规划",
       yearsOfExp: 3
     };
     setResumeData((prev) => ({
@@ -644,16 +644,16 @@ export default function App() {
 
           {/* Navigation List */}
           <nav className="flex-1 space-y-1.5">
-            <p className="text-[10px] font-bold text-slate-450 tracking-widest uppercase mb-2 px-3">系统导航</p>
+            <p className="text-[10px] font-bold text-slate-450 tracking-widest uppercase mb-2 px-3">导航</p>
             
             {[
-              { id: "overview", label: "控制台主页", icon: LayoutDashboard },
-              { id: "skills", label: "专业胜任力", icon: Brain, badge: skillsCount },
-              { id: "experience", label: "执业里程碑", icon: Briefcase, badge: resumeData.experience.length },
-              { id: "projects", label: "主导核心工程", icon: Award, badge: resumeData.projects.length },
-              { id: "education", label: "资质与学术", icon: GraduationCap },
-              { id: "contact", label: "留言咨询箱", icon: Mail, badge: contactMessages.length ? contactMessages.length : undefined },
-              { id: "admin", label: "后台数据配置", icon: Settings, highlight: true }
+              { id: "overview", label: "个人总览", icon: LayoutDashboard },
+              { id: "skills", label: "专业技能", icon: Brain, badge: skillsCount },
+              { id: "experience", label: "工作经历", icon: Briefcase, badge: resumeData.experience.length },
+              { id: "projects", label: "核心项目", icon: Award, badge: resumeData.projects.length },
+              { id: "education", label: "教育背景", icon: GraduationCap },
+              { id: "contact", label: "联系方式", icon: Mail, badge: contactMessages.length ? contactMessages.length : undefined },
+              { id: "admin", label: "后台编辑", icon: Settings, highlight: true }
             ].map((menuItem) => {
               const Icon = menuItem.icon;
               const isActive = activeTab === menuItem.id;
@@ -710,29 +710,29 @@ export default function App() {
             <div>
               <div className="flex items-center gap-2.5 text-[10px] text-teal-600 dark:text-teal-400 font-extrabold tracking-widest uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                {activeTab === "overview" && "EXECUTIVE CONSOLE ACTIVE"}
-                {activeTab === "skills" && "HR COMPETENCY MATRIX"}
-                {activeTab === "experience" && "EXECUTIVE MILESTONES"}
-                {activeTab === "projects" && "STRATEGIC SYSTEM ENGINEERING"}
-                {activeTab === "education" && "ACADEMIC & CREDENTIAL RECORD"}
-                {activeTab === "contact" && "OUTREACH INBOX ROUTING"}
-                {activeTab === "admin" && "BACKOFFICE ADMINISTRATIVE CENTER"}
+                {activeTab === "overview" && "个人总览"}
+                {activeTab === "skills" && "专业技能"}
+                {activeTab === "experience" && "工作经历"}
+                {activeTab === "projects" && "核心项目"}
+                {activeTab === "education" && "教育背景"}
+                {activeTab === "contact" && "联系方式"}
+                {activeTab === "admin" && "后台编辑"}
               </div>
               <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
-                {activeTab === "overview" && "控制台总览"}
-                {activeTab === "skills" && "专业胜任力 / 技能矩阵"}
-                {activeTab === "experience" && "工作履历与管理资历"}
-                {activeTab === "projects" && "主导核心工程 / 重点专项"}
-                {activeTab === "education" && "资质、学术与教育背景"}
-                {activeTab === "contact" && "取得联系与留言洽谈"}
-                {activeTab === "admin" && "后台配置中心"}
+                {activeTab === "overview" && "个人总览"}
+                {activeTab === "skills" && "专业技能"}
+                {activeTab === "experience" && "工作经历"}
+                {activeTab === "projects" && "核心项目"}
+                {activeTab === "education" && "教育背景"}
+                {activeTab === "contact" && "联系方式"}
+                {activeTab === "admin" && "后台编辑"}
               </h1>
             </div>
 
             <div className="flex items-center gap-3">
               <span className="text-xs text-slate-450 dark:text-slate-400 font-bold bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-150 dark:border-slate-700/80 flex items-center gap-2 shadow-xs">
                 <Activity size={12} className="text-emerald-500 animate-pulse" />
-                <span>连接指示: 活跃 (Active)</span>
+                <span>在线</span>
               </span>
               
               <button
@@ -762,7 +762,7 @@ export default function App() {
                       <Briefcase size={20} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">执业资历</p>
+                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">工作年限</p>
                       <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{experienceYears}</p>
                     </div>
                   </div>
@@ -773,20 +773,20 @@ export default function App() {
                       <Award size={20} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">重大专项主导</p>
-                      <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{resumeData.projects.length} 个变革</p>
+                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">核心项目</p>
+                      <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{resumeData.projects.length} 个</p>
                     </div>
                   </div>
 
-                  {/* Metric 3: Competency Rate */}
+                  {/* Metric 3: Performance Coverage Rate */}
                   <div className="bg-slate-50/50 dark:bg-slate-900/35 p-4 rounded-2xl border border-slate-150/60 dark:border-slate-850 hover:shadow-md transition-all flex items-center gap-4">
                     <div className="p-3 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl border border-amber-100/20">
                       <BadgeCheck size={20} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-450 uppercase tracking-widest">核心骨干留任</p>
+                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-450 uppercase tracking-widest">绩效上线率</p>
                       <p className="text-lg font-extrabold text-emerald-600 dark:text-emerald-450 mt-0.5">
-                        {resumeData.githubConfig.starredCountOverride ? `${resumeData.githubConfig.starredCountOverride}%` : "95%+"}
+                        94%
                       </p>
                     </div>
                   </div>
@@ -797,7 +797,7 @@ export default function App() {
                       <Mail size={20} />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">咨询意向信件</p>
+                      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-405 uppercase tracking-widest">留言</p>
                       <p className="text-lg font-extrabold text-slate-850 dark:text-white mt-0.5">{contactMessages.length} 封留言</p>
                     </div>
                   </div>
@@ -814,13 +814,13 @@ export default function App() {
                     <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
                       <div className="flex items-center gap-2 mb-4">
                         <User className="text-emerald-500" size={17} />
-                        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">执业理念与战略信条</h3>
+                        <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">关于我</h3>
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line">
                         {resumeData.personalInfo.bio}
                       </p>
                       <div className="mt-4 p-4 rounded-xl bg-slate-100/50 dark:bg-slate-800/60 text-xs text-slate-500 dark:text-slate-400 border border-slate-150 dark:border-slate-750">
-                        <span className="font-extrabold text-slate-705 dark:text-slate-300 block mb-1">专业胜任力定位与宏观价值：</span>
+                        <span className="font-extrabold text-slate-705 dark:text-slate-300 block mb-1">核心优势：</span>
                         {resumeData.personalInfo.summary}
                       </div>
                     </div>
@@ -830,13 +830,13 @@ export default function App() {
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2">
                           <Activity className="text-emerald-500 animate-pulse" size={17} />
-                          <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">HRBP 战略日记与组织审计态势录</h3>
+                          <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">近期核心工作</h3>
                         </div>
                       </div>
 
                       <div className="space-y-4">
                         <p className="text-[11px] text-slate-400 leading-relaxed bg-amber-50/50 dark:bg-amber-950/20 text-amber-800 dark:text-amber-400 p-2.5 rounded-lg border border-amber-100/30 dark:border-amber-950/50">
-                          聚焦人力成本精细化管控与组织效能提升，持续推动三大核心战略抓手落地：
+                          聚焦人力成本精细化管控与组织效能提升，持续推动三大核心工作落地：
                         </p>
                         
                         {[
@@ -866,7 +866,7 @@ export default function App() {
                     <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
                       <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                         <Brain size={17} className="text-teal-500" />
-                        <span>核心胜任力领域配比分部</span>
+                        <span>核心能力领域分布</span>
                       </h3>
                       
                       <div className="space-y-3.5">
@@ -897,7 +897,7 @@ export default function App() {
                         id="view-full-skills-btn"
                         className="w-full mt-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                       >
-                        <span>透视完整专业素质矩阵</span>
+                        <span>查看完整技能列表</span>
                         <ChevronRight size={13} />
                       </button>
                     </div>
@@ -907,7 +907,7 @@ export default function App() {
                       <div key={proj.id} className="bg-gradient-to-br from-emerald-500/15 to-indigo-500/10 dark:from-emerald-950/20 dark:to-indigo-950/20 p-6 rounded-2xl border border-emerald-500/20 dark:border-emerald-600/20">
                         <div className="flex items-center gap-2 mb-3">
                           <TrendingUp size={14} className="text-emerald-500" />
-                          <span className="text-[10px] font-extrabold text-indigo-700 dark:text-emerald-400 tracking-wider uppercase">主推经典人资工程</span>
+                          <span className="text-[10px] font-extrabold text-indigo-700 dark:text-emerald-400 tracking-wider uppercase">重点项目</span>
                         </div>
                         <h4 className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug">{proj.title}</h4>
                         <p className="text-xs text-slate-600 dark:text-slate-330 mt-2 leading-relaxed truncate-3-lines">{proj.description}</p>
@@ -923,7 +923,7 @@ export default function App() {
                           id="featured-proj-view-btn"
                           className="w-full mt-5 py-2.5 bg-slate-900 hover:bg-slate-830 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-md transition-all"
                         >
-                          <span>研读重点人力项目实施方案</span>
+                          <span>查看项目详情</span>
                           <ChevronRight size={13} />
                         </button>
                       </div>
@@ -944,7 +944,7 @@ export default function App() {
                 {/* Advanced filter panels */}
                 <div className="bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850 flex flex-col md:flex-row md:items-center justify-between gap-5">
                   <div className="flex flex-wrap gap-1.5">
-                    {["All", "Frontend", "Backend", "DevOps & Cloud", "Tools & Others"].map((cat) => (
+                    {["All", "薪酬福利规划", "HRBP业务协同", "组织效能与绩效激活", "人力数字化与用工合规"].map((cat) => (
                       <button
                         key={cat}
                         onClick={() => setSkillCategoryFilter(cat)}
@@ -1689,7 +1689,7 @@ export default function App() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-405 mb-1">执业理念与战略信条 (150字内细化对标)</label>
+                    <label className="block text-[10px] font-bold text-slate-405 mb-1">个人简介 (Bio)</label>
                     <textarea
                       rows={4}
                       value={resumeData.personalInfo.bio}
@@ -1699,7 +1699,7 @@ export default function App() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold text-slate-405 mb-1">核心优势简短总结摘要字句 (Summary)</label>
+                    <label className="block text-[10px] font-bold text-slate-405 mb-1">核心优势总结 (Summary)</label>
                     <input
                       type="text"
                       value={resumeData.personalInfo.summary}
@@ -1714,14 +1714,14 @@ export default function App() {
                   <div className="flex items-center justify-between pb-2 border-b border-slate-200/50 dark:border-slate-850">
                     <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 uppercase tracking-wider">
                       <Brain size={13} />
-                      <span>专业胜任力关键板块指标配置</span>
+                      <span>技能指标配置</span>
                     </h4>
                     <button
                       onClick={handleAddSkill}
                       className="px-2.5 py-1 bg-emerald-500 hover:bg-emerald-450 text-slate-950 text-xs font-bold rounded-lg flex items-center gap-1 cursor-pointer"
                     >
                       <Plus size={11} />
-                      <span>添加胜任力条目</span>
+                      <span>添加技能</span>
                     </button>
                   </div>
 
@@ -1741,10 +1741,10 @@ export default function App() {
                           onChange={(e) => handleUpdateSkill(index, "category", e.target.value)}
                           className="w-full sm:w-44 text-xs px-2 py-1.5 bg-slate-50 dark:bg-slate-750 text-slate-900 dark:text-white rounded border border-slate-115 cursor-pointer"
                         >
-                          <option value="Frontend">薪酬福利规划 (C&B)</option>
-                          <option value="Backend">HRBP 业务协同</option>
-                          <option value="DevOps & Cloud">组织效能与绩效激活</option>
-                          <option value="Tools & Others">人力数字化与用工合规</option>
+                          <option value="薪酬福利规划">薪酬福利规划</option>
+                          <option value="HRBP业务协同">HRBP业务协同</option>
+                          <option value="组织效能与绩效激活">组织效能与绩效激活</option>
+                          <option value="人力数字化与用工合规">人力数字化与用工合规</option>
                         </select>
 
                         <div className="w-full sm:w-44 flex items-center gap-2">
@@ -2420,7 +2420,7 @@ export default function App() {
               <div>
                 <h1 className="text-2xl font-black text-slate-950 uppercase tracking-widest">{resumeData.personalInfo.name}</h1>
                 <p className="text-sm font-bold text-slate-700 mt-0.5">{resumeData.personalInfo.title}</p>
-                <p className="text-[10px] text-slate-500 mt-2 font-semibold">{resumeData.personalInfo.location} | 拥有 {experienceYears} 知名科创及跨国大厂专业人力资源与管理变革实操资历</p>
+                <p className="text-[10px] text-slate-500 mt-2 font-semibold">{resumeData.personalInfo.location} | {experienceYears} 薪酬绩效管理经验</p>
               </div>
               <div className="text-right text-[10px] space-y-0.5 font-semibold text-slate-800">
                 <p>电子邮箱: {resumeData.personalInfo.email}</p>
@@ -2432,36 +2432,36 @@ export default function App() {
 
             {/* Profile bio */}
             <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">执业理念与职业目标 (Executive Summary)</h2>
+              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">个人简介</h2>
               <p className="text-[10px] leading-relaxed text-slate-750 whitespace-pre-line px-1">{resumeData.personalInfo.bio}</p>
             </div>
 
             {/* Competency distribution summary */}
             <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">专业胜任力关键板块分布 (Core Competencies)</h2>
+              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">专业技能分布</h2>
               <div className="grid grid-cols-2 gap-3 px-1 text-[10px]">
                 <div>
-                  <p className="font-bold">{categoryDisplayMap["Frontend"]}：</p>
+                  <p className="font-bold">{categoryDisplayMap["薪酬福利规划"]}：</p>
                   <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "Frontend").slice(0, 4).map(s => s.name).join(" / ")}
+                    {resumeData.skills.filter(s => s.category === "薪酬福利规划").slice(0, 4).map(s => s.name).join(" / ")}
                   </p>
                 </div>
                 <div>
-                  <p className="font-bold">{categoryDisplayMap["Backend"]}：</p>
+                  <p className="font-bold">{categoryDisplayMap["HRBP业务协同"]}：</p>
                   <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "Backend").slice(0, 4).map(s => s.name).join(" / ")}
+                    {resumeData.skills.filter(s => s.category === "HRBP业务协同").slice(0, 4).map(s => s.name).join(" / ")}
                   </p>
                 </div>
                 <div>
-                  <p className="font-bold">{categoryDisplayMap["DevOps & Cloud"]}：</p>
+                  <p className="font-bold">{categoryDisplayMap["组织效能与绩效激活"]}：</p>
                   <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "DevOps & Cloud").slice(0, 4).map(s => s.name).join(" / ")}
+                    {resumeData.skills.filter(s => s.category === "组织效能与绩效激活").slice(0, 4).map(s => s.name).join(" / ")}
                   </p>
                 </div>
                 <div>
-                  <p className="font-bold">{categoryDisplayMap["Tools & Others"]}：</p>
+                  <p className="font-bold">{categoryDisplayMap["人力数字化与用工合规"]}：</p>
                   <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "Tools & Others").slice(0, 4).map(s => s.name).join(" / ")}
+                    {resumeData.skills.filter(s => s.category === "人力数字化与用工合规").slice(0, 4).map(s => s.name).join(" / ")}
                   </p>
                 </div>
               </div>
@@ -2469,7 +2469,7 @@ export default function App() {
 
             {/* Work Milestone Timeline summaries */}
             <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">执业里程碑与核心任职细节 (Career Timeline)</h2>
+              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">工作经历</h2>
               <div className="space-y-3 px-1">
                 {resumeData.experience.map((exp) => (
                   <div key={exp.id} className="space-y-1">
@@ -2482,7 +2482,7 @@ export default function App() {
                         <li key={idx}>{desc}</li>
                       ))}
                     </ul>
-                    <p className="text-[9px] text-slate-500 font-bold">主导核心模块与所涉方法论：{exp.techStack.join(" / ")}</p>
+                    <p className="text-[9px] text-slate-500 font-bold">核心方法：{exp.techStack.join(" / ")}</p>
                   </div>
                 ))}
               </div>
@@ -2490,7 +2490,7 @@ export default function App() {
 
             {/* Curated HR Initiative projects highlights */}
             <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">主导精品重大变革案例 (Key Strategic Initiatives)</h2>
+              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">核心项目</h2>
               <div className="space-y-3 px-1">
                 {resumeData.projects.map((proj) => (
                   <div key={proj.id} className="space-y-1">
@@ -2510,7 +2510,7 @@ export default function App() {
 
             {/* Credentials & Academy */}
             <div>
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">教育资质背景与终身追求 (Education & Credentials)</h2>
+              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">教育背景</h2>
               <div className="space-y-1.5 px-1">
                 {resumeData.education.map((edu) => (
                   <div key={edu.id} className="flex justify-between items-start text-[10px] font-bold text-slate-800">

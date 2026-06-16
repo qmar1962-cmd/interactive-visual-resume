@@ -4,11 +4,11 @@
 import { ResumeData } from "./types";
 
 export const initialResumeData: ResumeData = {
-  "version": "2.0.0",
-  "_version": "2026-06-16-v3",
+  "version": "2.1.0",
+  "_version": "2026-06-16-v4",
   "personalInfo": {
     "name": "刘洋",
-    "title": "HRBP · 薪酬绩效专员",
+    "title": "薪酬绩效推进 · 人工成本管控",
     "avatarUrl": "/interactive-visual-resume/avatar.jpg",
     "email": "qmar1962@gmail.com",
     "phone": "180-6234-4910",
@@ -16,50 +16,50 @@ export const initialResumeData: ResumeData = {
     "website": "https://qmar1962-cmd.github.io/interactive-visual-resume/",
     "github": "qmar1962-cmd",
     "linkedin": "liuyang-hr",
-    "bio": "2 年物流运营中心薪酬绩效管理经验，主导华中大区近 9000 人绩效体系从计时制向计件制的全面转型。擅长将成本管控目标拆解为可执行的过程指标，通过数字化工具和人才梯队建设推动目标落地。喜欢用数据说话，也喜欢亲自下场做事。",
-    "summary": "主导过覆盖近 9000 人规模的计时转计件绩效方案落地，熟悉物流转运中心操作员岗位能力要素评估与单价测算体系；独立搭建 GPT 人工成本可视化平台（AI + Supabase + GitHub Pages），数据处理耗时压缩 67%；截至 2026 年 Q2，累计为大区节省人工成本 20 万+。"
+    "bio": "2年物流运营中心薪酬绩效管理经验，统筹华中大区14个中心约20名绩效专员，推进覆盖近9000名操作工的全员绩效改革（计时转计件）。擅长将成本管控目标拆解为可执行的过程指标，通过数字化工具和人才梯队建设推动目标落地。喜欢用数据说话，也喜欢亲自下场做事。求职意向：HRBP / 薪酬绩效管理。",
+    "summary": "统筹14个中心约20名绩效专员推进全员绩效改革落地，熟悉物流转运中心操作员岗位能力要素评估与单价测算体系；独立搭建GPT人工成本可视化平台（AI + Supabase + GitHub Pages），数据处理耗时压缩67%；2026年1-5月，通过每月单价调整累计节余人工成本超20万元。"
   },
   "skills": [
     {
       "name": "绩效体系设计与落地（计时转计件）",
       "level": 90,
-      "category": "Frontend",
+      "category": "薪酬福利规划",
       "yearsOfExp": 2
     },
     {
       "name": "人工成本预算分析与过程管控",
       "level": 85,
-      "category": "Frontend",
+      "category": "薪酬福利规划",
       "yearsOfExp": 2
     },
     {
       "name": "单价测算与薪酬方案设计",
       "level": 85,
-      "category": "Frontend",
+      "category": "薪酬福利规划",
       "yearsOfExp": 2
     },
     {
       "name": "效能盘点与人效数据分析",
       "level": 90,
-      "category": "DevOps & Cloud",
+      "category": "组织效能与绩效激活",
       "yearsOfExp": 2
     },
     {
       "name": "绩效种子人才梯队培养",
       "level": 88,
-      "category": "DevOps & Cloud",
+      "category": "组织效能与绩效激活",
       "yearsOfExp": 2
     },
     {
       "name": "数据分析与可视化（Excel / PowerBI）",
       "level": 90,
-      "category": "Tools & Others",
+      "category": "人力数字化与用工合规",
       "yearsOfExp": 2
     },
     {
       "name": "AI辅助工具应用与低代码系统开发",
       "level": 82,
-      "category": "Tools & Others",
+      "category": "人力数字化与用工合规",
       "yearsOfExp": 1
     }
   ],
@@ -67,12 +67,13 @@ export const initialResumeData: ResumeData = {
     {
       "id": "exp_1",
       "company": "上海圆通蛟龙投资发展有限公司",
-      "role": "华中大区薪酬绩效专员",
+      "role": "华中大区薪酬绩效专员（统筹推进）",
       "startDate": "2024-09",
       "endDate": "至今",
       "location": "武汉",
       "description": [
-        "人工成本预算与管控：Q1单次人工成本完成优于目标0.003元，完成率97%；1-2月单次人工分别低于目标0.004元、0.006元，3月达成目标；截至5月，大区累计节余成本超20万元。",
+        "统筹华中大区14个中心约20名绩效专员，推进覆盖近9000名操作工的全员绩效改革。",
+        "人工成本预算与管控：Q1单次人工成本完成优于目标0.003元，完成率97%；1-2月单次人工分别低于目标0.004元、0.006元，3月达成目标；2026年1-5月通过每月单价调整累计节余成本超20万元。",
         "绩效体系落地推进：截至Q2，累计推动13个中心上线（武汉、襄阳、长沙、赣州、新乡、郑州、漯河、荆州、横峰、武昌、衡阳、常德、南昌），绩效上线率达94%。",
         "AI人工成本诊断工具部署：搭建GPT人工成本异常诊断机制，部署线上可视化平台，推动中心日常用工管理精细化。",
         "绩效种子人才培养：构建中心绩效人才全流程培养体系（理论培训→现场实操→汇报认证），2025年累计培养绩效人员13人，通过率100%，优秀率54%（7人）；2026年Q1再培养9人。"
@@ -165,7 +166,7 @@ export const initialResumeData: ResumeData = {
       "outcomes": [
         "人均效能：2024年1748→2025年1974→2026年2107，逐年提升。",
         "单次人工成本：2024年0.0105→2025年0.0091→2026年0.0088，稳步下降。",
-        "截至5月，大区累计节余人工成本超20万元。"
+        "2026年1-5月，通过每月单价调整累计节余人工成本超20万元。"
       ],
       "role": "项目负责人",
       "timeline": "2025.3—至今"
@@ -211,7 +212,9 @@ export const initialResumeData: ResumeData = {
       "certName": "",
       "certOrg": "",
       "certDate": "",
-      "highlights": []
+      "highlights": [
+        "毕业后加入圆通，从业务一线转型至薪酬绩效管理，在实操中快速建立专业能力"
+      ]
     }
   ],
   "githubConfig": {

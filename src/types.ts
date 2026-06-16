@@ -15,7 +15,7 @@ export interface PersonalInfo {
 export interface Skill {
   name: string;
   level: number; // 0-100
-  category: "Frontend" | "Backend" | "DevOps & Cloud" | "Tools & Others";
+  category: "薪酬福利规划" | "HRBP业务协同" | "组织效能与绩效激活" | "人力数字化与用工合规";
   yearsOfExp: number;
 }
 
