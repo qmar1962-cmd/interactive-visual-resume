@@ -1462,19 +1462,17 @@ export default function App() {
 
           </div>
 
-          {/* ==================== PRINT ONLY: Professional A4 Resume ==================== */}
+          {/* ==================== PRINT ONLY: Standard A4 Resume ==================== */}
           <div className="hidden print:block print-resume-sheet">
 
-            {/* ── Header: Name / Title / Contact ── */}
+            {/* ── 姓名 + 基本信息（居中） ── */}
             <div className="print-header">
               <h1 className="print-name">{resumeData.personalInfo.name}</h1>
-              <div className="print-title-row">
-                <span className="print-title">{resumeData.personalInfo.title}　｜　{resumeData.personalInfo.location}　｜　{experienceYears}薪酬绩效管理经验</span>
-                <span className="print-contact-line">
-                  <span>{resumeData.personalInfo.phone}</span>
-                  <span>{resumeData.personalInfo.email}</span>
-                  <span>{resumeData.personalInfo.website}</span>
-                </span>
+              <div className="print-title">{resumeData.personalInfo.title}</div>
+              <div className="print-contact-line">
+                <span>{resumeData.personalInfo.phone}</span>
+                <span>{resumeData.personalInfo.email}</span>
+                <span>{resumeData.personalInfo.location}</span>
               </div>
             </div>
 
@@ -1496,7 +1494,7 @@ export default function App() {
                   return (
                     <div key={cat} className="print-skill-group">
                       <span className="print-skill-category">{categoryDisplayMap[cat]}：</span>
-                      <span className="print-skill-items">{catSkills.map(s => s.name).join("　/　")}</span>
+                      <span className="print-skill-items">{catSkills.map(s => s.name).join("、")}</span>
                     </div>
                   );
                 })}
@@ -1508,11 +1506,11 @@ export default function App() {
               <div className="print-section-title">工作经历</div>
               <div className="print-body">
                 {resumeData.experience.map(exp => (
-                  <div key={exp.id} style={{ marginBottom: "4pt" }}>
+                  <div key={exp.id} style={{ marginBottom: "6pt" }}>
                     <div className="print-exp-header">
                       <span>
                         <span className="print-exp-company">{exp.company}</span>
-                        {" — "}
+                        {"　"}
                         <span className="print-exp-role">{exp.role}</span>
                       </span>
                       <span className="print-exp-date">{exp.startDate} — {exp.endDate}</span>
@@ -1532,13 +1530,12 @@ export default function App() {
               <div className="print-section-title">核心项目</div>
               <div className="print-body">
                 {resumeData.projects.map(proj => (
-                  <div key={proj.id} style={{ marginBottom: "4pt" }}>
-                    <div style={{ marginBottom: "1pt" }}>
+                  <div key={proj.id} style={{ marginBottom: "5pt" }}>
+                    <div style={{ marginBottom: "2pt" }}>
                       <span className="print-project-title">{proj.title}</span>
                       <span className="print-project-tag">{proj.category}</span>
-                      {proj.timeline && <span style={{ fontSize: "8pt", color: "#666", marginLeft: "6pt" }}>{proj.timeline}</span>}
                     </div>
-                    {proj.description && <p style={{ marginBottom: "1pt" }}>{proj.description}</p>}
+                    {proj.description && <p>{proj.description}</p>}
                     {proj.outcomes && proj.outcomes.length > 0 && (
                       <ul className="print-project-outcomes">
                         {proj.outcomes.map((o, i) => <li key={i}>{o}</li>)}
@@ -1557,17 +1554,12 @@ export default function App() {
                   <div key={edu.id} className="print-edu-row">
                     <span>
                       <span className="print-edu-institution">{edu.institution}</span>
-                      <span className="print-edu-detail"> — {edu.degree} · {edu.major}</span>
+                      <span className="print-edu-detail">　{edu.degree} · {edu.major}</span>
                     </span>
                     <span className="print-edu-detail">{edu.startDate} — {edu.endDate}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* ── Footer ── */}
-            <div className="print-footer-line">
-              本简历由本人独立开发部署 · {resumeData.personalInfo.website}
             </div>
 
           </div>
