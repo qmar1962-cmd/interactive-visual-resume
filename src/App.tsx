@@ -696,7 +696,7 @@ export default function App() {
 
             {/* ==================== TAB 1: OVERVIEW ==================== */}
             {activeTab === "overview" && (
-              <div className="space-y-6 md:space-y-8 animate-fade-in print:block">
+              <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
                 {/* 4 CORE HR METRICS */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -804,29 +804,29 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Right Column: HR competency radar proportions & spotlights */}
-                  <div className="lg:col-span-5 space-y-6 md:space-y-8">
-                    
-                    {/* Skills Proportion Horizontal Bar Charts */}
-                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
-                      <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                        <Brain size={17} className="text-teal-500" />
+                  {/* Right Column: 核心能力分布 + 重点项目 */}
+                  <div className="lg:col-span-5 space-y-5">
+
+                    {/* 技能领域分布 */}
+                    <div className="bg-slate-50/40 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850/80">
+                      <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                        <Brain size={16} className="text-teal-500" />
                         <span>核心能力领域分布</span>
                       </h3>
-                      
-                      <div className="space-y-3.5">
+
+                      <div className="space-y-2.5">
                         {resumeData.githubConfig.languages.map((lang, index) => (
                           <div key={index} className="space-y-1">
                             <div className="flex items-center justify-between text-xs font-semibold">
                               <span className="flex items-center gap-1.5">
-                                <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ backgroundColor: lang.color }}></span>
-                                <span className="text-slate-700 dark:text-slate-350 text-[11px] truncate max-w-[210px]">{lang.name}</span>
+                                <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: lang.color }}></span>
+                                <span className="text-slate-700 dark:text-slate-350 text-[11px] truncate max-w-[200px]">{lang.name}</span>
                               </span>
-                              <span className="text-slate-500 text-[11px]">{lang.percentage}%</span>
+                              <span className="text-slate-500 text-[11px] tabular-nums">{lang.percentage}%</span>
                             </div>
                             <div className="w-full bg-slate-200/50 dark:bg-slate-805 rounded-full h-1.5 overflow-hidden">
                               <div
-                                className="h-full rounded-full transition-all duration-1000"
+                                className="h-full rounded-full transition-all duration-700"
                                 style={{
                                   backgroundColor: lang.color,
                                   width: `${lang.percentage}%`
@@ -840,33 +840,33 @@ export default function App() {
                       <button
                         onClick={() => setActiveTab("skills")}
                         id="view-full-skills-btn"
-                        className="w-full mt-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                        className="w-full mt-4 py-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-350 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-slate-150 dark:border-slate-750"
                       >
                         <span>查看完整技能列表</span>
                         <ChevronRight size={13} />
                       </button>
                     </div>
 
-                    {/* Highly Recommended HR Initiative */}
+                    {/* 重点项目 */}
                     {resumeData.projects.filter(p => p.featured).slice(0, 1).map((proj) => (
-                      <div key={proj.id} className="bg-gradient-to-br from-emerald-500/15 to-indigo-500/10 dark:from-emerald-950/20 dark:to-indigo-950/20 p-6 rounded-2xl border border-emerald-500/20 dark:border-emerald-600/20">
-                        <div className="flex items-center gap-2 mb-3">
+                      <div key={proj.id} className="bg-gradient-to-br from-emerald-500/10 to-indigo-500/8 dark:from-emerald-950/15 dark:to-indigo-950/12 p-5 rounded-2xl border border-emerald-400/18 dark:border-emerald-600/15">
+                        <div className="flex items-center gap-2 mb-2.5">
                           <TrendingUp size={14} className="text-emerald-500" />
-                          <span className="text-[10px] font-extrabold text-indigo-700 dark:text-emerald-400 tracking-wider uppercase">重点项目</span>
+                          <span className="text-[10px] font-extrabold text-indigo-600 dark:text-emerald-400 tracking-wider uppercase">重点项目</span>
                         </div>
                         <h4 className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug">{proj.title}</h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-330 mt-2 leading-relaxed truncate-3-lines">{proj.description}</p>
-                        
-                        <div className="flex flex-wrap gap-1 mt-4">
+                        <p className="text-[11px] text-slate-550 dark:text-slate-330 mt-2 leading-relaxed truncate-3-lines">{proj.description}</p>
+
+                        <div className="flex flex-wrap gap-1 mt-3">
                           {proj.techStack.slice(0, 3).map((t, idx) => (
-                            <span key={idx} className="text-[9px] px-2 py-0.5 bg-white/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded border border-slate-150 dark:border-slate-750 font-bold">{t}</span>
+                            <span key={idx} className="text-[9px] px-2 py-0.5 bg-white/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md border border-slate-150 dark:border-slate-750 font-bold">{t}</span>
                           ))}
                         </div>
 
                         <button
                           onClick={() => setActiveTab("projects")}
                           id="featured-proj-view-btn"
-                          className="w-full mt-5 py-2.5 bg-slate-900 hover:bg-slate-830 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-md transition-all"
+                          className="w-full mt-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer hover:shadow-sm transition-all"
                         >
                           <span>查看项目详情</span>
                           <ChevronRight size={13} />
@@ -884,7 +884,7 @@ export default function App() {
 
             {/* ==================== TAB 2: SKILLS (COMPETENCIES) ==================== */}
             {activeTab === "skills" && (
-              <div className="space-y-6 md:space-y-8 animate-fade-in">
+              <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
                 {/* Advanced filter panels */}
                 <div className="bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850 flex flex-col md:flex-row md:items-center justify-between gap-5">
@@ -980,7 +980,7 @@ export default function App() {
 
             {/* ==================== TAB 3: EXPERIENCE ==================== */}
             {activeTab === "experience" && (
-              <div className="space-y-6 md:space-y-8 animate-fade-in">
+              <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
                 {/* Milestone Vertical Timeline path */}
                 <div className="relative pl-6 md:pl-8 border-l border-slate-200 dark:border-slate-800 space-y-8 md:space-y-12">
@@ -1048,7 +1048,7 @@ export default function App() {
 
             {/* ==================== TAB 4: PROJECTS (STRATEGIC INITIATIVES) ==================== */}
             {activeTab === "projects" && (
-              <div className="space-y-6 md:space-y-8 animate-fade-in">
+              <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
                 {/* Custom search matrix bar */}
                 <div className="bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-150/60 dark:border-slate-850 flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1299,7 +1299,7 @@ export default function App() {
 
             {/* ==================== TAB 5: EDUCATION ==================== */}
             {activeTab === "education" && (
-              <div className="space-y-6 md:space-y-8 animate-fade-in">
+              <div className="space-y-6 md:space-y-8 animate-fade-in print:hidden">
                 
                 <div className="space-y-6">
                   {resumeData.education.map((edu) => (
@@ -1345,7 +1345,7 @@ export default function App() {
 
             {/* ==================== TAB 6: CONTACT ==================== */}
             {activeTab === "contact" && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fade-in">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fade-in print:hidden">
                 
                 {/* Form column */}
                 <div className="lg:col-span-7 bg-slate-50/30 dark:bg-slate-900/25 p-6 rounded-2xl border border-slate-150/60 dark:border-slate-850 space-y-5">
