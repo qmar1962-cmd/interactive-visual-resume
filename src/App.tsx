@@ -1579,12 +1579,8 @@ export default function App() {
 
       </div>
 
-      {/* DASHBOARD SYSTEM FOOTER */}
-      <footer className="py-6 mt-auto text-center text-xs text-slate-450 dark:text-slate-550 border-t border-slate-200/40 bg-slate-55/40 dark:bg-slate-950/65 print:hidden">
-        <p>© 2026 {resumeData.personalInfo.name} | 智汇人资联合管理高级顾问仪表盘系统</p>
-        <p className="mt-1 font-semibold text-[11px] flex items-center justify-center gap-1 text-slate-400">
-          <span>基于高级组织诊断、美世岗位对标及宽带薪酬理论构建</span>
-        </p>
+      <footer className="py-5 mt-auto text-center text-[11px] text-slate-400 dark:text-slate-500 print:hidden">
+        <p>© 2026 {resumeData.personalInfo.name}</p>
       </footer>
 
     </div>
