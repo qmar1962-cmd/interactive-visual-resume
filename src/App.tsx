@@ -1462,115 +1462,112 @@ export default function App() {
 
           </div>
 
-          {/* ==================== PRINT ONLY RESUME SHEET (A4 Perfect Dual-Column Formatting) ==================== */}
-          <div className="hidden print:block bg-white text-black p-0 m-0 w-full text-xs font-medium">
+          {/* ==================== PRINT ONLY: Professional A4 Resume ==================== */}
+          <div className="hidden print:block print-resume-sheet">
 
-            <div className="border-b-2 border-black pb-4 mb-4 flex justify-between items-end">
-              <div>
-                <h1 className="text-2xl font-black text-slate-950 uppercase tracking-widest">{resumeData.personalInfo.name}</h1>
-                <p className="text-sm font-bold text-slate-700 mt-0.5">{resumeData.personalInfo.title}</p>
-                <p className="text-[10px] text-slate-500 mt-2 font-semibold">{resumeData.personalInfo.location} | {experienceYears} 薪酬绩效管理经验</p>
-              </div>
-              <div className="text-right text-[10px] space-y-0.5 font-semibold text-slate-800">
-                <p>电子邮箱: {resumeData.personalInfo.email}</p>
-                <p>直连热线: {resumeData.personalInfo.phone}</p>
-                <p>LinkedIn: linkedin.com/in/{resumeData.personalInfo.linkedin || "hr-expert"}</p>
-                <p>线上主页: {resumeData.personalInfo.website}</p>
-              </div>
-            </div>
-
-            {/* Profile bio */}
-            <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">个人简介</h2>
-              <p className="text-[10px] leading-relaxed text-slate-750 whitespace-pre-line px-1">{resumeData.personalInfo.bio}</p>
-            </div>
-
-            {/* Competency distribution summary */}
-            <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">专业技能分布</h2>
-              <div className="grid grid-cols-2 gap-3 px-1 text-[10px]">
-                <div>
-                  <p className="font-bold">{categoryDisplayMap["薪酬福利规划"]}：</p>
-                  <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "薪酬福利规划").slice(0, 4).map(s => s.name).join(" / ")}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-bold">{categoryDisplayMap["HRBP业务协同"]}：</p>
-                  <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "HRBP业务协同").slice(0, 4).map(s => s.name).join(" / ")}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-bold">{categoryDisplayMap["组织效能与绩效激活"]}：</p>
-                  <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "组织效能与绩效激活").slice(0, 4).map(s => s.name).join(" / ")}
-                  </p>
-                </div>
-                <div>
-                  <p className="font-bold">{categoryDisplayMap["人力数字化与用工合规"]}：</p>
-                  <p className="text-slate-650 mt-0.5">
-                    {resumeData.skills.filter(s => s.category === "人力数字化与用工合规").slice(0, 4).map(s => s.name).join(" / ")}
-                  </p>
-                </div>
+            {/* ── Header: Name / Title / Contact ── */}
+            <div className="print-header">
+              <h1 className="print-name">{resumeData.personalInfo.name}</h1>
+              <div className="print-title-row">
+                <span className="print-title">{resumeData.personalInfo.title}　｜　{resumeData.personalInfo.location}　｜　{experienceYears}薪酬绩效管理经验</span>
+                <span className="print-contact-line">
+                  <span>{resumeData.personalInfo.phone}</span>
+                  <span>{resumeData.personalInfo.email}</span>
+                  <span>{resumeData.personalInfo.website}</span>
+                </span>
               </div>
             </div>
 
-            {/* Work Milestone Timeline summaries */}
-            <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">工作经历</h2>
-              <div className="space-y-3 px-1">
-                {resumeData.experience.map((exp) => (
-                  <div key={exp.id} className="space-y-1">
-                    <div className="flex justify-between items-center text-[10px] font-black text-slate-850">
-                      <span>{exp.company} — <span className="font-bold">{exp.role}</span></span>
-                      <span>({exp.startDate} 至 {exp.endDate})</span>
+            {/* ── 个人简介 ── */}
+            <div className="print-section">
+              <div className="print-section-title">个人简介</div>
+              <div className="print-body">
+                <p>{resumeData.personalInfo.bio}</p>
+              </div>
+            </div>
+
+            {/* ── 专业技能 ── */}
+            <div className="print-section">
+              <div className="print-section-title">专业技能</div>
+              <div className="print-body">
+                {(["薪酬福利规划", "HRBP业务协同", "组织效能与绩效激活", "人力数字化与用工合规"] as const).map(cat => {
+                  const catSkills = resumeData.skills.filter(s => s.category === cat);
+                  if (catSkills.length === 0) return null;
+                  return (
+                    <div key={cat} className="print-skill-group">
+                      <span className="print-skill-category">{categoryDisplayMap[cat]}：</span>
+                      <span className="print-skill-items">{catSkills.map(s => s.name).join("　/　")}</span>
                     </div>
-                    <ul className="list-disc pl-4 space-y-0.5 text-[9.5px] text-slate-700">
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── 工作经历 ── */}
+            <div className="print-section">
+              <div className="print-section-title">工作经历</div>
+              <div className="print-body">
+                {resumeData.experience.map(exp => (
+                  <div key={exp.id} style={{ marginBottom: "4pt" }}>
+                    <div className="print-exp-header">
+                      <span>
+                        <span className="print-exp-company">{exp.company}</span>
+                        {" — "}
+                        <span className="print-exp-role">{exp.role}</span>
+                      </span>
+                      <span className="print-exp-date">{exp.startDate} — {exp.endDate}</span>
+                    </div>
+                    <ul>
                       {exp.description.map((desc, idx) => (
                         <li key={idx}>{desc}</li>
                       ))}
                     </ul>
-                    <p className="text-[9px] text-slate-500 font-bold">核心方法：{exp.techStack.join(" / ")}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Curated HR Initiative projects highlights */}
-            <div className="mb-4">
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">核心项目</h2>
-              <div className="space-y-3 px-1">
-                {resumeData.projects.map((proj) => (
-                  <div key={proj.id} className="space-y-1">
-                    <div className="flex justify-between items-center text-[10px] font-black text-slate-800">
-                      <span className="font-black text-slate-900">{proj.title} ({proj.category})</span>
+            {/* ── 核心项目 ── */}
+            <div className="print-section">
+              <div className="print-section-title">核心项目</div>
+              <div className="print-body">
+                {resumeData.projects.map(proj => (
+                  <div key={proj.id} style={{ marginBottom: "4pt" }}>
+                    <div style={{ marginBottom: "1pt" }}>
+                      <span className="print-project-title">{proj.title}</span>
+                      <span className="print-project-tag">{proj.category}</span>
+                      {proj.timeline && <span style={{ fontSize: "8pt", color: "#666", marginLeft: "6pt" }}>{proj.timeline}</span>}
                     </div>
-                    <p className="text-[9.5px] leading-relaxed text-slate-650">{proj.description}</p>
-                    <ul className="list-disc pl-4 space-y-0.5 text-[9px] text-slate-500">
-                      {proj.highlights?.map((hl, idx) => (
-                        <li key={idx}>{hl}</li>
-                      ))}
-                    </ul>
+                    {proj.description && <p style={{ marginBottom: "1pt" }}>{proj.description}</p>}
+                    {proj.outcomes && proj.outcomes.length > 0 && (
+                      <ul className="print-project-outcomes">
+                        {proj.outcomes.map((o, i) => <li key={i}>{o}</li>)}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Credentials & Academy */}
-            <div>
-              <h2 className="text-xs font-black uppercase tracking-wider mb-2 bg-slate-100 p-1 pl-2 border-l-4 border-black">教育背景</h2>
-              <div className="space-y-1.5 px-1">
-                {resumeData.education.map((edu) => (
-                  <div key={edu.id} className="flex justify-between items-start text-[10px] font-bold text-slate-800">
-                    <div>
-                      <p className="font-black">{edu.institution} — {edu.degree}</p>
-                      <p className="text-[9px] text-slate-600 mt-0.5">{edu.major}</p>
-                    </div>
-                    <span>{edu.startDate} 至 {edu.endDate}</span>
+            {/* ── 教育背景 ── */}
+            <div className="print-section">
+              <div className="print-section-title">教育背景</div>
+              <div className="print-body">
+                {resumeData.education.map(edu => (
+                  <div key={edu.id} className="print-edu-row">
+                    <span>
+                      <span className="print-edu-institution">{edu.institution}</span>
+                      <span className="print-edu-detail"> — {edu.degree} · {edu.major}</span>
+                    </span>
+                    <span className="print-edu-detail">{edu.startDate} — {edu.endDate}</span>
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* ── Footer ── */}
+            <div className="print-footer-line">
+              本简历由本人独立开发部署 · {resumeData.personalInfo.website}
             </div>
 
           </div>
